@@ -1,23 +1,45 @@
-/*=============== SHOW MENU ===============*/
-const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close')
+//Header
+document.addEventListener("DOMContentLoaded", function () {
+    fetch('../Components/header.html')
+        .then(response => response.text())
+        .then(data => {
+            // Inserta el contenido del header
+            document.getElementById('header').innerHTML = data;
 
-/* Menu show */
-if(navToggle){
-    navToggle.addEventListener('click', () =>{
-        navMenu.classList.add('show-menu')
-    })
+            // Inicializa los eventos del menú después de cargar el header
+            initializeMenu();
+        })
+        .catch(error => console.error('Error loading the header:', error));
+});
+
+function initializeMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    const navToggle = document.getElementById('nav-toggle');
+    const navClose = document.getElementById('nav-close');
+
+    // Menu show
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.add('show-menu');
+        });
+    }
+
+    // Menu hidden
+    if (navClose) {
+        navClose.addEventListener('click', () => {
+            navMenu.classList.remove('show-menu');
+        });
+    }
+
+    // Remove menu mobile
+    const navLink = document.querySelectorAll('.nav__link');
+    navLink.forEach(link =>
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('show-menu');
+        })
+    );
 }
-
-/* Menu hidden */
-if(navClose){
-    navClose.addEventListener('click', () =>{
-        navMenu.classList.remove('show-menu')
-    })
-}
-
-
+//header FIN//
 /*=============== REMOVE MENU MOBILE ===============*/
 const navLink = document.querySelectorAll('.nav__link')
 
@@ -48,3 +70,5 @@ gsap.from('.home__cloud-2', 1.2, {opacity: 0, x:  300,  delay: 1.3  })
 gsap.from('.home__content', 1.5, {opacity: 0, y:  -100,  delay: 1.4  })
 gsap.from('.home__title img', 1.5, {opacity: 0, x: 100,  delay: 1.6  })
 
+  
+  
