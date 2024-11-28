@@ -71,4 +71,9 @@ gsap.from('.home__content', 1.5, {opacity: 0, y:  -100,  delay: 1.4  })
 gsap.from('.home__title img', 1.5, {opacity: 0, x: 100,  delay: 1.6  })
 
   
+
+
+
+  /*carrusel*/
+  
   
