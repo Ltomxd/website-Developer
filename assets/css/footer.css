@@ -133,7 +133,7 @@ body .footer {
     display: grid;
     position: relative;
     grid-area: footer;
-    padding: 1rem 0;
+    padding: -9rem 1;
     background: var(--footer-background);
 }
 
@@ -281,10 +281,32 @@ body .footer .content > div .image {
 }
 
 footer {
-    width: 100%;
-    box-sizing: border-box;
-  }
-  * {
-    box-sizing: border-box;
-  }
-    
+  width: 100%;
+  box-sizing: border-box;
+}
+* {
+  box-sizing: border-box;
+}
+  
+
+/*=============== BASE ===============*/
+
+
+body {
+font-family: var(--body-font);
+color: var(--text-color);
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+
+body {
+padding-top: 3rem; /* Este valor puede ajustarse según el tamaño de tu header */
+}
+
+
+
+
+
+

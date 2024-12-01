@@ -44,9 +44,9 @@
 @media screen and (min-width: 1152px) {
   :root {
     --biggest-font-size: 4rem;
-    --h3-font-size: 1.125rem;
-    --normal-font-size: 1rem;
-    --small-font-size: .875rem;
+    --h3-font-size: 2.125rem;
+    --normal-font-size: 1.9rem;
+    --small-font-size: .75rem;
   }
 }
 
@@ -140,6 +140,41 @@ img {
   cursor: pointer;
 }
 
+
+.nav__link {
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 20px;
+  position: relative;
+  display: inline-block;
+  transition: color .5s;
+}
+
+.nav__link:hover {
+  color: #0ef;
+}
+
+.nav__link span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-bottom: 2px solid #760191;
+  border-radius: 15px;
+  transform: scale(0) translateY(50px);
+  opacity: 0;
+  transition: .5s;
+}
+
+.nav__link:hover span {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+
 /* Navigation for mobile devices */
 @media screen and (max-width: 1023px) {
   .nav__menu {
@@ -165,13 +200,14 @@ img {
 }
 
 .nav__link {
-  color: var(--title-color);
-  font-weight: var(--font-semi-bold);
-  transition: color .4s;
-
+  font-size: 1.9rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 20px;
+  position: relative;
+  display: inline-block;
+  transition: color .5s;
 }
-
-
 
 .nav__close {
   position: absolute;
@@ -183,8 +219,6 @@ img {
 .show-menu {
   right: 0;
 }
-
-
 
 /*=============== HOME ===============*/
 
@@ -267,7 +301,7 @@ img {
 }
 
 .home__rocket {
-  width: 220px;
+  width: 400px;
 }
 
 .home__planet-1 {
@@ -282,22 +316,7 @@ img {
   top: 1.25rem;
 }
 
-.home__cloud-1,
-.home__cloud-2 {
-  position: absolute;
-  bottom: 0;
-  max-width: initial;
-}
 
-.home__cloud-2 {
-  width: 500px;
-  right: -4rem;
-}
-
-.home__cloud-1 {
-  width: 700px;
-  right: -6rem;
-}
 
 
 
@@ -312,21 +331,79 @@ img {
 
   .home__content {
     text-align: left;
+
   }
 
   .home__title {
     font-size: 1.50rem;
+
+
   }
-  .home_description{
-    font-size: 0.8rem;
+
+  .home_description {
+    font-size: 0.7rem;
+    padding-inline: 0.1rem;
+    /* Vuelve al valor original para pantallas más grandes */
+
   }
-  
+
 
 }
 
+
+
+/* Media query para pantallas pequeñas (máximo 360px) */
+@media screen and (max-width: 360px) {
+
+  .home_description {
+    font-size: 0.8rem;
+    padding-inline: 5.1rem;
+    /* Espacio interno específico para pantallas pequeñas */
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+  .container {
+    margin-inline: 0.1rem;
+  }
+
+  .home__title {
+    font-size: 1.10rem;
+  }
+
+  .home_description {
+    font-size: 0.8rem;
+    padding-inline: 8.5rem;
+    /* Espacio interno específico para pantallas pequeñas */
+  }
+
+  .home__rocket {
+    width: 150px;
+    top: -5.0rem;
+    left: 11.0rem;
+  }
+
+  .home__planet-1 {
+    display: none;
+  }
+
+  .home__planet-2 {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
 /* For taller devices */
 
-@media screen and (min-width: 376px) and (min-height: 800px) {
+@media screen and (min-width: 375px) and (min-height: 800px) {
 
   .home__container {
     padding-top: 10rem;
@@ -335,8 +412,11 @@ img {
   .home__content {
     text-align: left;
   }
-  .home_description{
+
+  .home_description {
     font-size: 1.98rem;
+    padding-inline: -9.9rem;
+    /* Espacio interno específico para pantallas pequeñas */
   }
 }
 
@@ -367,6 +447,13 @@ img {
 
   }
 
+  .home_description {
+
+    padding-inline: 0.1rem;
+    /* Vuelve al valor original para pantallas más grandes */
+  }
+
+
 }
 
 @media screen and (min-width: 767px) {
@@ -388,6 +475,13 @@ img {
   .home__title {
     margin-inline: 0;
   }
+
+  .home_description {
+
+    padding-inline: 0.1rem;
+    /* Vuelve al valor original para pantallas más grandes */
+  }
+
 
 }
 
@@ -436,6 +530,12 @@ img {
 
   }
 
+  .home_description {
+    padding-inline: 0.1rem;
+    /* Vuelve al valor original para pantallas más grandes */
+  }
+
+
 }
 
 @media screen and (min-width: 1152px) {
@@ -447,7 +547,7 @@ img {
 
     grid-template-columns: 460px 650px;
     align-items: center;
-    z-index: 5;
+    z-index: 1;
 
   }
 
@@ -457,7 +557,7 @@ img {
   }
 
   .home__title {
-    letter-spacing: -1px;
+    letter-spacing: 1px;
     margin-bottom: 1rem;
   }
 
@@ -465,11 +565,14 @@ img {
 
     width: 150px;
     right: -.75rem;
+
   }
 
   .home_description {
     font-size: var(--h3-font-size);
     margin-bottom: 3rem;
+    padding-inline: 0.1rem;
+    /* Vuelve al valor original para pantallas más grandes */
   }
 
   .home__images {
@@ -484,7 +587,7 @@ img {
   }
 
   .home__rocket {
-    width: 450px;
+    width: 650px;
   }
 
   .home__planet-1 {
@@ -519,5 +622,3 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-
