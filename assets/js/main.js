@@ -43,7 +43,7 @@ function initializeMenu() {
 /*=============== REMOVE MENU MOBILE ===============*/
 const navLink = document.querySelectorAll('.nav__link')
 
-const linkAction = () =>{
+const linkAction = () => {
     const navMenu = document.getElementById('nav-menu')
     // When we click on each nav__link, we remove the show-menu class
     navMenu.classList.remove('show-menu')
@@ -51,32 +51,50 @@ const linkAction = () =>{
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
-const scrollHeader = () =>{
+const scrollHeader = () => {
     const header = document.getElementById('header')
     // Add a class if the bottom offset is greater than 50 of the viewport
-    this.scrollY >= 50 ? header.classList.add('scroll-header') 
-                       : header.classList.remove('scroll-header')
+    this.scrollY >= 50 ? header.classList.add('scroll-header')
+        : header.classList.remove('scroll-header')
 }
 window.addEventListener('scroll', scrollHeader)
 
 
 /*=============== GSAP ANIMATION ===============*/
-gsap.from('.home__points', 1.5, {opacity: 0, y: -300,  delay: .2  })
-gsap.from('.home__rocket', 1.5, {opacity: 0, y:  300,  delay: .3  })
-gsap.from('.home__planet-1', 1.5, {opacity: 0, x:  -200,  delay: .8  })
-gsap.from('.home__planet-2', 1.5, {opacity: 0, x:  200,  delay: 1  })
-gsap.from('.home__cloud-1', 1.5, {opacity: 0, y:  300,  delay: 1.2  })
-gsap.from('.home__cloud-2', 1.2, {opacity: 0, x:  300,  delay: 1.3  })
-gsap.from('.home__content', 1.5, {opacity: 0, y:  -100,  delay: 1.4  })
-gsap.from('.home__title img', 1.5, {opacity: 0, x: 100,  delay: 1.6  })
+document.addEventListener('DOMContentLoaded', () => {
+    // Esperar a que el header y footer estén completamente cargados
+    const checkComponentsLoaded = () => {
+        const headerLoaded = document.getElementById('header') && document.getElementById('header').innerHTML.trim() !== '';
+        const footerLoaded = document.getElementById('footer-container') && document.getElementById('footer-container').innerHTML.trim() !== '';
+        return headerLoaded && footerLoaded;
+    };
 
-  
+    const startAnimations = () => {
+        // Ejecutar animaciones de GSAP
+        gsap.from('.home__points', 1.5, { opacity: 0, y: -300, delay: 2.2 });
+        gsap.from('.home__rocket', 1.5, { opacity: 0, y: 300, delay: 0.3 });
+        gsap.from('.home__planet-1', 1.5, { opacity: 0, x: -200, delay: 0.8 });
+        gsap.from('.home__planet-2', 1.5, { opacity: 0, x: 200, delay: 1 });
+        gsap.from('.home__cloud-1', 1.5, { opacity: 0, y: 300, delay: 1.2 });
+        gsap.from('.home__cloud-2', 1.2, { opacity: 0, x: 300, delay: 1.3 });
+        gsap.from('.home__content', 1.5, { opacity: 0, y: -100, delay: 1.4 });
+        gsap.from('.home__title img', 1.5, { opacity: 0, x: 100, delay: 1.6 });
+        gsap.from('.card__text', 1.5, { opacity: 0, y: -100, delay: 1.0 });
+        gsap.from('.card__container', 1.5, { opacity: 0, y: -100, delay: 1.0 });
 
+    };
 
+    const waitForComponents = setInterval(() => {
+        if (checkComponentsLoaded()) {
+            clearInterval(waitForComponents);
+            startAnimations();
+        }
+    }, 100);
+});
 
-  /*footer*/
+/*-------------------------------*/
+/*footer*/
 
-  // main.js
 document.addEventListener('DOMContentLoaded', () => {
     // Seleccionar el contenedor donde se insertará el footer
     const footerContainer = document.getElementById('footer-container');
@@ -95,5 +113,22 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error(error)); // Manejar errores si algo sale mal
 });
 
-  
-  
+
+/*socail*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const footerContainer = document.getElementById('icons-container');
+
+    fetch('../Components/iconofoters.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el footer: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            footerContainer.innerHTML = data; // Insertar el contenido en el contenedor
+        })
+        .catch(error => console.error(error)); // Manejar errores si algo sale mal
+});
+
