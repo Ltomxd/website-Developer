@@ -250,7 +250,7 @@ img {
   width: max-content;
   margin: 0 auto .75rem;
   font-size: var(--biggest-font-size);
-  color: var(--title-color);
+  color: #fff;
 }
 
 .home__title img {
@@ -278,7 +278,7 @@ img {
       var(--second-color-alt));
   padding: 1.125rem 3rem;
   border-radius: 4rem;
-  color: var(--title-color);
+  color: #fff;
   font-weight: var(--font-semi-bold);
   box-shadow: 0 8px 32px hsla(268, 58%, 4%, .3),
     inset 0 4px 8px hsla(0, 0%, 100%, .4);
@@ -621,4 +621,33 @@ body {
 img {
   max-width: 100%;
   height: auto;
+}
+
+#abou-container {
+  position: relative; /* Asegúrate de que sea relativo para usar pseudo-elementos */
+  background: var(--body-gradient); /* Fondo actual */
+  padding: -1rem 1rem; /* Ajusta el espacio interno según tus necesidades */
+  z-index: 0; /* Asegura que el contenido interno no interfiera */
+  overflow: hidden; /* Para evitar que los pseudo-elementos sobresalgan */
+}
+
+#abou-container::before,
+#abou-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50px; /* Ajusta la altura del degradado según sea necesario */
+  z-index: 1; /* Aparece por encima del fondo */
+  pointer-events: none; /* No interactúa con el mouse */
+}
+
+#abou-container::before {
+  top: 0; /* Posición del degradado superior */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent); /* Difuminado suave hacia abajo */
+}
+
+#abou-container::after {
+  bottom: 0; /* Posición del degradado inferior */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent); /* Difuminado suave hacia arriba */
 }

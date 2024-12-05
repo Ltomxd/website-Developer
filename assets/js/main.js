@@ -114,6 +114,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleccionar el contenedor donde se insertará el footer
+    const footerContainer = document.getElementById('abou-container');
+
+    // Cargar el contenido del footer desde Components/footer.html
+    fetch('../Landings/About.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el footer: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            footerContainer.innerHTML = data; // Insertar el contenido en el contenedor
+        })
+        .catch(error => console.error(error)); // Manejar errores si algo sale mal
+});
+
+
 /*socail*/
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -131,4 +152,43 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error(error)); // Manejar errores si algo sale mal
 });
+
+
+/*About*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const footerContainer = document.getElementById('homecontainer');
+
+    fetch('../Landings/home.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el footer: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            footerContainer.innerHTML = data; // Insertar el contenido en el contenedor
+        })
+        .catch(error => console.error(error)); // Manejar errores si algo sale mal
+});
+
+/*services*/
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const footerContainer = document.getElementById('services-container');
+
+    fetch('../Landings/services.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el footer: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            footerContainer.innerHTML = data; // Insertar el contenido en el contenedor
+        })
+        .catch(error => console.error(error)); // Manejar errores si algo sale mal
+});
+
 

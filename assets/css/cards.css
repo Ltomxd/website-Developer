@@ -225,6 +225,7 @@ img {
     align-items: center; /* Alinea verticalmente los elementos */
     padding: 3rem; /* Espaciado interno */
     height: 100vh; /* Ocupa toda la altura de la pantalla */
+    margin-top: -50px;
   }
 
   .card__text {
