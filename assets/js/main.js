@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.from('.home__cloud-2', 1.2, { opacity: 0, x: 300, delay: 1.3 });
         gsap.from('.home__content', 1.5, { opacity: 0, y: -100, delay: 1.4 });
         gsap.from('.home__title img', 1.5, { opacity: 0, x: 100, delay: 1.6 });
-        gsap.from('.card__text', 1.5, { opacity: 0, y: -100, delay: 1.0 });
+        gsap.from('.card__text', 1.5, { opacity: 0, y: 300, delay: 1.0 });
         gsap.from('.card__container', 1.5, { opacity: 0, y: -100, delay: 1.0 });
 
     };
