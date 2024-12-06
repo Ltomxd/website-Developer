@@ -44,12 +44,14 @@ img {
   background: var(--body-gradient);
   padding-block: 4.5rem;
   text-align: center; /* Asegura que el título esté centrado */
+  
 }
 .card__container {
   margin-inline: 1.5rem;
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 2rem;
+  
 }
 .card__article {
   position: relative;

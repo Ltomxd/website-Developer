@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const footerContainer = document.getElementById('services-container');
+    const footerContainer = document.getElementById('servicescontainer');
 
     fetch('../Landings/services.html')
         .then(response => {
@@ -190,5 +190,3 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error(error)); // Manejar errores si algo sale mal
 });
-
-
