@@ -1,5 +1,6 @@
 /*=============== BASE ===============*/
-* {
+* 
+{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -155,4 +156,84 @@
       width: 100%;
     }
   }
+
+  .cards__title-main {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    opacity: 0; /* Comienza invisible */
+    transform: scale(0.8); /* Comienza más pequeño */
+    animation: slide-in 1s forwards; /* Aplica la animación */
+    position: relative; /* Necesario para las ondas */
+  }
   
+  .cards__title-main::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 100%;
+    height: 10px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 60%);
+    transform: translateX(-50%);
+    animation: wave-animation 1.5s infinite; /* Animación para las ondas */
+  }
+  
+  /* Animación de deslizamiento */
+  @keyframes slide-in {
+    0% {
+      transform: translateX(-50px) scale(0.8); /* Comienza desplazado a la izquierda y pequeño */
+      opacity: 0; /* Comienza invisible */
+    }
+    100% {
+      transform: translateX(0) scale(1); /* Llega a la posición final */
+      opacity: 1; /* Se vuelve completamente visible */
+    }
+  }
+  
+  /* Animación de ondas */
+  @keyframes wave-animation {
+    0% {
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      transform: translateX(-50%) scale(1.1); /* Efecto de expansión */
+    }
+    100% {
+      transform: translateX(-50%) scale(1);
+    }
+  }
+    
+  /*=============== BREAKPOINTS ===============*/
+/* Para dispositivos pequeños */
+@media (max-width: 768px) {
+  .cards__containers {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    justify-content: space-around; /* Espacio uniforme entre las tarjetas */
+  }
+
+  .cards__articles {
+    flex: 1 1 45%; /* Las tarjetas se ajustan para caber mejor en pantallas pequeñas */
+    min-width: 150px;
+    max-width: 200px;
+  }
+
+  .cards__imgs {
+    width: 100%;
+  }
+
+  .cards__datas {
+    width: 100%;
+  }
+}
+
+/* Para pantallas medianas (entre 769px y 1030px) */
+@media (min-width: 769px) and (max-width: 1030px) {
+  .cards__containers {
+    padding-left: 2rem; /* Espacio extra en el lado izquierdo */
+    padding-right: 2rem; /* Espacio extra en el lado derecho */
+  }
+}
+
