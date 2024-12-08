@@ -154,6 +154,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// Obtener todos los enlaces
+const buttons = document.querySelectorAll('.button');
+
+buttons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();  // Evitar el desplazamiento
+
+    // Agregar o quitar la clase "expand"
+    button.classList.toggle('expand');
+
+    // Si se expandió, abrir el enlace correspondiente
+    if (button.classList.contains('expand')) {
+      const link = button.getAttribute('data-link');
+      setTimeout(() => {
+        window.location.href = link; // Redirige al enlace
+      }, 300);  // Después de que se haya expandido (con el tiempo de la animación)
+    }
+  });
+});
+
+
+
 /*About*/
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -190,3 +212,5 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error(error)); // Manejar errores si algo sale mal
 });
+
+

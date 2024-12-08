@@ -145,45 +145,52 @@
   </div>
   <br><br><br><br><br>
   <div class="wrapper">
-   
-     <a href="#" class="button">
-        <div class="icon">
-           <i class="fab fa-facebook-f"></i>
-        </div>
-        <span>Facebook</span>
-     </a>
-     <a href="#" class="button">
-        <div class="icon">
-           <i class="fab fa-twitter"></i>
-        </div>
-        <span>Twitter</span>
-     </a>
-     <a href="#" class="button">
-        <div class="icon">
-           <i class="fab fa-instagram"></i>
-        </div>
-        <span>Instagram</span>
-     </a>
-     <a href="#" class="button">
-        <div class="icon">
-           <i class="fab fa-github"></i>
-        </div>
-        <span>Github</span>
-     </a>
-     <a href="#" class="button">
-        <div class="icon">
-           <i class="fab fa-linkedin"></i>
-        </div>
-        <span>Linkedin</span>
-     </a>
-  
-  <div class="info">
-   <span>Hecho en El Salvador</span>
-   <span>© 2024 - <a href=" target="_blank">CodeMark</a></span>
+   <a href="#" class="button" data-link="https://www.facebook.com">
+     <div class="icon">
+       <i class="fab fa-facebook-f"></i>
+     </div>
+     <span>Facebook</span>
+   </a>
+   <a href="#" class="button" data-link="https://www.twitter.com">
+     <div class="icon">
+       <i class="fab fa-twitter"></i>
+     </div>
+     <span>Twitter</span>
+   </a>
+   <a href="#" class="button" data-link="https://www.instagram.com">
+     <div class="icon">
+       <i class="fab fa-instagram"></i>
+     </div>
+     <span>Instagram</span>
+   </a>
+   <a href="#" class="button" data-link="https://www.github.com">
+     <div class="icon">
+       <i class="fab fa-github"></i>
+     </div>
+     <span>Github</span>
+   </a>
+   <a href="#" class="button" data-link="https://www.linkedin.com">
+     <div class="icon">
+       <i class="fab fa-linkedin"></i>
+     </div>
+     <span>Linkedin</span>
+   </a>
+ 
+   <div class="info">
+     <span>Hecho en El Salvador</span>
+     <span>© 2024 - <a href="https://www.codemark.com" target="_blank">CodeMark</a></span>
+   </div>
  </div>
- </div>
+ 
 
 </div>
+<script>
+   // Previene el comportamiento por defecto (desplazamiento)
+   document.querySelector('.wrapper .button').addEventListener('click', function(event) {
+     event.preventDefault();  // Evita el desplazamiento
+     // Aquí puedes agregar lo que debe suceder cuando se haga clic
+   });
+ </script>
 <svg style="position:fixed; top:100vh">
   <defs>
     <filter id="blob">
