@@ -651,3 +651,20 @@ img {
   bottom: 0; /* Posición del degradado inferior */
   background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent); /* Difuminado suave hacia arriba */
 }
+
+
+
+.home__rocket {
+  position: relative; /* Permite mover la imagen con `top` */
+  animation: float 3s ease-in-out infinite; /* Aplica la animación */
+}
+
+/* Definición de la animación */
+@keyframes float {
+  0%, 100% {
+      transform: translateY(0); /* Posición inicial */
+  }
+  50% {
+      transform: translateY(-10px); /* Sube 10px */
+  }
+}
