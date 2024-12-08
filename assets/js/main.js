@@ -154,34 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Obtener todos los botones
-const buttons = document.querySelectorAll('.button');
-
-// Añadir un evento de clic para cada botón
-buttons.forEach(button => {
-  button.addEventListener('click', function(event) {
-    event.preventDefault();  // Prevenir el comportamiento predeterminado de los enlaces
-
-    // Comprobar si el botón ya está expandido
-    if (button.classList.contains('expand')) {
-      // Si está expandido, redirigir al enlace
-      const link = button.getAttribute('data-link');
-      window.location.href = link;
-    } else {
-      // Si no está expandido, agregar la clase 'expand' para hacerlo
-      button.classList.add('expand');
-      
-      // Después de un pequeño delay, permitir la redirección
-      setTimeout(() => {
-        // El link se redirige aquí, una vez que el botón está expandido
-        const link = button.getAttribute('data-link');
-        window.location.href = link;
-      }, 300);  // Tiempo de espera para que la animación termine (300ms)
-    }
-  });
-});
-
-
 
 /*About*/
 
