@@ -322,7 +322,6 @@
     position: relative; /* Asegura que los íconos estén sobre otros elementos */
     z-index: 2; /* Establece el z-index para los íconos */
   }
-
   
   .wrapper .button {
     display: inline-block;
@@ -336,7 +335,6 @@
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-out;
-    
   }
   
   .wrapper .button:hover {
@@ -411,6 +409,19 @@
   .wrapper .button:nth-child(5) span {
     color: #0077B5;
   }
+  
+  @media (max-width: 768px) {
+    .wrapper .button {
+      height: 60px;
+      width: 60px;
+      transition: width 0.3s ease-out;
+    }
+  
+    .wrapper .button.expand {
+      width: 200px; /* Cambiar el ancho cuando se expanda */
+    }
+  }
+  
   
   
 /* Fondo para las burbujas en el footer */
