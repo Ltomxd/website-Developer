@@ -193,3 +193,29 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+/*form*/
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const footerContainer = document.getElementById('formcontainer');
+
+    fetch('../Components/formcontac.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el footer: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            footerContainer.innerHTML = data; // Insertar el contenido en el contenedor
+        })
+        .catch(error => console.error(error)); // Manejar errores si algo sale mal
+});
+
+
+
+
+
+
+
+
